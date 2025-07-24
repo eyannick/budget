@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/../includes/auth.php';
+require_once dirname(__DIR__).'/includes/auth.php';
 require_login();
 $db = getDB();
 $error = '';
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Nom requis';
     }
 }
-require_once __DIR__.'/../includes/header.php';
+require_once dirname(__DIR__).'/includes/header.php';
 ?>
 <h1>Ajouter un compte</h1>
 <?php if ($error): ?><div class="alert alert-danger"><?= htmlspecialchars($error) ?></div><?php endif; ?>
@@ -26,4 +26,4 @@ require_once __DIR__.'/../includes/header.php';
     <button type="submit" class="btn btn-primary">Enregistrer</button>
     <a href="list.php" class="btn btn-secondary">Retour</a>
 </form>
-<?php require_once __DIR__.'/../includes/footer.php';
+<?php require_once dirname(__DIR__).'/includes/footer.php';

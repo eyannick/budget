@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/../includes/auth.php';
+require_once dirname(__DIR__).'/includes/auth.php';
 require_login();
 $db = getDB();
 
@@ -45,7 +45,7 @@ $totStmt = $db->prepare($totSql);
 $totStmt->execute($totParams);
 $totals = $totStmt->fetchAll();
 
-require_once __DIR__.'/../includes/header.php';
+require_once dirname(__DIR__).'/includes/header.php';
 ?>
 <h1>Transactions</h1>
 <a href="add.php" class="btn btn-primary mb-3">Ajouter</a>
@@ -100,4 +100,4 @@ require_once __DIR__.'/../includes/header.php';
 <tr><td><?= htmlspecialchars($t['category']) ?></td><td><?= htmlspecialchars($t['total']) ?></td></tr>
 <?php endforeach; ?>
 </table>
-<?php require_once __DIR__.'/../includes/footer.php';
+<?php require_once dirname(__DIR__).'/includes/footer.php';

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/../includes/auth.php';
+require_once dirname(__DIR__).'/includes/auth.php';
 require_login();
 $db = getDB();
 if (isset($_POST['delete'])) {
@@ -9,7 +9,7 @@ if (isset($_POST['delete'])) {
 $stmt = $db->prepare('SELECT id, name FROM accounts WHERE user_id=? ORDER BY name');
 $stmt->execute([current_user_id()]);
 $rows = $stmt->fetchAll();
-require_once __DIR__.'/../includes/header.php';
+require_once dirname(__DIR__).'/includes/header.php';
 ?>
 <h1>Comptes</h1>
 <a href="add.php" class="btn btn-primary mb-3">Ajouter</a>
@@ -28,4 +28,4 @@ require_once __DIR__.'/../includes/header.php';
 </tr>
 <?php endforeach; ?>
 </table>
-<?php require_once __DIR__.'/../includes/footer.php';
+<?php require_once dirname(__DIR__).'/includes/footer.php';
