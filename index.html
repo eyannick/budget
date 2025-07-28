@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestion de Budget</title>
+  <link href="="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+  <div class="container py-5">
+    <h1 class="mb-4 text-center">Gestion de Budget</h1>
+
+    <!-- Comptes -->
+    <section class="mb-4">
+      <h2>Comptes</h2>
+      <form id="account-form" class="row g-2 mb-3">
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="account-name" placeholder="Nom du compte" required>
+        </div>
+        <div class="col-md-3">
+          <input type="number" class="form-control" id="account-balance" placeholder="Solde initial" required>
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary w-100">Ajouter compte</button>
+        </div>
+      </form>
+      <ul id="accounts-list" class="list-group"></ul>
+    </section>
+
+    <!-- Transactions -->
+    <section class="mb-4">
+      <h2>Ajouter une transaction</h2>
+      <form id="transaction-form" class="row g-2 mb-3">
+        <div class="col-md-3">
+          <select class="form-select" id="transaction-type">
+            <option value="revenu">Revenu</option>
+            <option value="dépense">Dépense</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <input type="number" class="form-control" id="transaction-amount" placeholder="Montant" required>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" id="transaction-account"></select>
+        </div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" id="transaction-label" placeholder="Libellé">
+        </div>
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-success w-100">Ajouter</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Virements -->
+    <section class="mb-4">
+      <h2>Effectuer un virement</h2>
+      <form id="transfer-form" class="row g-2 mb-3">
+        <div class="col-md-3">
+          <select class="form-select" id="transfer-from"></select>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" id="transfer-to"></select>
+        </div>
+        <div class="col-md-3">
+          <input type="number" class="form-control" id="transfer-amount" placeholder="Montant" required>
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-warning w-100">Transférer</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Transactions Table -->
+    <section>
+      <h2>Historique des transactions</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Montant</th>
+            <th>Compte</th>
+            <th>Libellé</th>
+          </tr>
+        </thead>
+        <tbody id="transactions-table"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
