@@ -1,54 +1,27 @@
 <?php
-require_once __DIR__.'/auth.php';
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Budget perso</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Manager</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="includes/css/style.css">
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <div class="container-fluid">
-<<<<<<< HEAD
-    <a class="navbar-brand" href="/budget/index.php">Budget</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="/budget/transactions/list.php">Transactions</a></li>
-        <li class="nav-item"><a class="nav-link" href="/budget/categories/list.php">Catégories</a></li>
-        <li class="nav-item"><a class="nav-link" href="/budget/subcategories/list.php">Sous-catégories</a></li>
-        <li class="nav-item"><a class="nav-link" href="/budget/payment_modes/list.php">Modes de paiement</a></li>
-        <li class="nav-item"><a class="nav-link" href="/budget/accounts/list.php">Comptes</a></li>
-      </ul>
-      <ul class="navbar-nav">
-        <?php if (current_user_id()): ?>
-            <li class="nav-item"><a class="nav-link" href="/logout.php">Se déconnecter</a></li>
-        <?php else: ?>
-            <li class="nav-item"><a class="nav-link" href="/login.php">Se connecter</a></li>
-=======
-    <a class="navbar-brand" href="index.php">Budget</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="transactions/list.php">Transactions</a></li>
-        <li class="nav-item"><a class="nav-link" href="categories/list.php">Catégories</a></li>
-        <li class="nav-item"><a class="nav-link" href="subcategories/list.php">Sous-catégories</a></li>
-        <li class="nav-item"><a class="nav-link" href="payment_modes/list.php">Modes de paiement</a></li>
-        <li class="nav-item"><a class="nav-link" href="accounts/list.php">Comptes</a></li>
-      </ul>
-      <ul class="navbar-nav">
-        <?php if (current_user_id()): ?>
-            <li class="nav-item"><a class="nav-link" href="logout.php">Se déconnecter</a></li>
-        <?php else: ?>
-            <li class="nav-item"><a class="nav-link" href="login.php">Se connecter</a></li>
->>>>>>> 56ad122dbfc9a25313c64344091314310913a7af
-        <?php endif; ?>
-      </ul>
+    <a class="navbar-brand" href="index.php">BudgetApp</a>
+    <div class="d-flex">
+      <a class="btn btn-outline-light" href="logout.php">Déconnexion</a>
     </div>
   </div>
 </nav>
-<<<<<<< HEAD
 <div class="container">
-=======
-<div class="container">
->>>>>>> 56ad122dbfc9a25313c64344091314310913a7af
