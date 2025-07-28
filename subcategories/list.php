@@ -37,4 +37,8 @@ require_once __DIR__.'/../includes/header.php';
   </tr>
   <?php endforeach; ?>
 </table>
+<<<<<<< HEAD
 <?php require_once __DIR__.'/../includes/footer.php';
+=======
+<?php require_once __DIR__.'/../includes/footer.php';
+>>>>>>> 56ad122dbfc9a25313c64344091314310913a7af

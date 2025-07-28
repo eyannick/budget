@@ -45,6 +45,7 @@ $totStmt = $db->prepare($totSql);
 $totStmt->execute($totParams);
 $totals = $totStmt->fetchAll();
 
+<<<<<<< HEAD
 // Totaux revenus/dépenses et solde
 $balSql = 'SELECT type, SUM(amount) as total FROM transactions
             WHERE user_id=? AND YEAR(created_at)=?';
@@ -66,6 +67,8 @@ foreach ($balStmt->fetchAll() as $row) {
 }
 $balance = $income - $expense;
 
+=======
+>>>>>>> 56ad122dbfc9a25313c64344091314310913a7af
 require_once __DIR__.'/../includes/header.php';
 ?>
 <h1>Transactions</h1>
@@ -100,10 +103,17 @@ require_once __DIR__.'/../includes/header.php';
     <td><?= htmlspecialchars($row['type']) ?></td>
     <td><?= htmlspecialchars($row['amount']) ?></td>
     <td><?= htmlspecialchars($row['account']) ?></td>
+<<<<<<< HEAD
     <td><?= htmlspecialchars($row['category'] ?? '') ?></td>
     <td><?= htmlspecialchars($row['subcategory'] ?? '') ?></td>
     <td><?= htmlspecialchars($row['payment_mode'] ?? '') ?></td>
     <td><?= htmlspecialchars($row['label'] ?? '') ?></td>
+=======
+    <td><?= htmlspecialchars($row['category']) ?></td>
+    <td><?= htmlspecialchars($row['subcategory']) ?></td>
+    <td><?= htmlspecialchars($row['payment_mode']) ?></td>
+    <td><?= htmlspecialchars($row['label']) ?></td>
+>>>>>>> 56ad122dbfc9a25313c64344091314310913a7af
     <td>
       <a class="btn btn-sm btn-secondary" href="edit.php?id=<?= $row['id'] ?>">Éditer</a>
       <form method="post" class="d-inline" onsubmit="return confirm('Supprimer ?');">
@@ -118,6 +128,7 @@ require_once __DIR__.'/../includes/header.php';
 <table class="table">
 <tr><th>Catégorie</th><th>Total</th></tr>
 <?php foreach($totals as $t): ?>
+<<<<<<< HEAD
 <tr><td><?= htmlspecialchars($t['category']) ?></td><td><?= htmlspecialchars($t['total']) ?> €</td></tr>
 <?php endforeach; ?>
 </table>
@@ -130,3 +141,9 @@ require_once __DIR__.'/../includes/header.php';
 </table>
 
 <?php require_once __DIR__.'/../includes/footer.php';
+=======
+<tr><td><?= htmlspecialchars($t['category']) ?></td><td><?= htmlspecialchars($t['total']) ?></td></tr>
+<?php endforeach; ?>
+</table>
+<?php require_once __DIR__.'/../includes/footer.php';
+>>>>>>> 56ad122dbfc9a25313c64344091314310913a7af

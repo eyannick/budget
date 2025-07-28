@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/includes/auth.php';
 require_login();
+<<<<<<< HEAD
 $db = getDB();
 $year = date('Y');
 $month = date('m');
@@ -15,11 +16,14 @@ foreach ($stmt->fetchAll() as $row) {
     }
 }
 $balance = $income - $expense;
+=======
+>>>>>>> 56ad122dbfc9a25313c64344091314310913a7af
 require_once __DIR__.'/includes/header.php';
 ?>
 <h1 class="mb-4">Tableau de bord</h1>
 <p>Bienvenue sur votre application de suivi de budget.</p>
 <p>Utilisez le menu pour gérer vos transactions et listes.</p>
+<<<<<<< HEAD
 <h2>Bilan du mois (<?= $month ?>/<?= $year ?>)</h2>
 <table class="table">
   <tr><th>Revenus</th><td><?= htmlspecialchars($income) ?></td></tr>
@@ -28,3 +32,7 @@ require_once __DIR__.'/includes/header.php';
 </table>
 <?php
 require_once __DIR__.'/includes/footer.php';
+=======
+<?php
+require_once __DIR__.'/includes/footer.php';
+>>>>>>> 56ad122dbfc9a25313c64344091314310913a7af

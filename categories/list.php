@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 require_once dirname(__DIR__).'/includes/auth.php';
+=======
+require_once __DIR__.'/../includes/auth.php';
+>>>>>>> 56ad122dbfc9a25313c64344091314310913a7af
 require_login();
 $db = getDB();
 
@@ -12,7 +16,11 @@ $stmt = $db->prepare('SELECT id, name FROM categories WHERE user_id = ? ORDER BY
 $stmt->execute([current_user_id()]);
 $categories = $stmt->fetchAll();
 
+<<<<<<< HEAD
 require_once dirname(__DIR__).'/includes/header.php';
+=======
+require_once __DIR__.'/../includes/header.php';
+>>>>>>> 56ad122dbfc9a25313c64344091314310913a7af
 ?>
 <h1>Catégories</h1>
 <a href="add.php" class="btn btn-primary mb-3">Ajouter</a>
@@ -31,4 +39,8 @@ require_once dirname(__DIR__).'/includes/header.php';
     </tr>
     <?php endforeach; ?>
 </table>
+<<<<<<< HEAD
 <?php require_once dirname(__DIR__).'/includes/footer.php';
+=======
+<?php require_once __DIR__.'/../includes/footer.php';
+>>>>>>> 56ad122dbfc9a25313c64344091314310913a7af

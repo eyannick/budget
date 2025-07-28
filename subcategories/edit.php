@@ -49,4 +49,8 @@ require_once __DIR__.'/../includes/header.php';
     <button type="submit" class="btn btn-primary">Enregistrer</button>
     <a href="list.php" class="btn btn-secondary">Retour</a>
 </form>
+<<<<<<< HEAD
 <?php require_once __DIR__.'/../includes/footer.php';
+=======
+<?php require_once __DIR__.'/../includes/footer.php';
+>>>>>>> 56ad122dbfc9a25313c64344091314310913a7af
