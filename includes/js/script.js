@@ -1,29 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
   const categorySelect = document.getElementById("category_id");
   const subcategorySelect = document.getElementById("subcategory_id");
+  const transactionType = document.getElementById("transaction_type");
+  const targetGroup = document.getElementById("target_account_group");
 
-  if (categorySelect && subcategorySelect && window.allSubcategories) {
-    categorySelect.addEventListener("change", function () {
-      const selectedCatId = categorySelect.value;
-      subcategorySelect.innerHTML = '<option value="">-- Sélectionner une sous-catégorie --</option>';
-
-      window.allSubcategories.forEach(function (sub) {
-        if (sub.category_id === selectedCatId) {
-          const option = document.createElement("option");
-          option.value = sub.id;
-          option.textContent = sub.name;
-          subcategorySelect.appendChild(option);
-        }
-      });
+  // Gérer affichage du champ compte cible (virement)
+  if (transactionType && targetGroup) {
+    transactionType.addEventListener("change", () => {
+      targetGroup.style.display = transactionType.value === "virement" ? "block" : "none";
     });
   }
 
-  const transactionTypeSelect = document.getElementById("transaction_type");
-  const targetAccountGroup = document.getElementById("target_account_group");
+  // Gérer affichage des sous-catégories selon la catégorie
+  if (categorySelect && subcategorySelect && window.allSubcategories) {
+    categorySelect.addEventListener("change", () => {
+      const selectedCategoryId = categorySelect.value;
+      subcategorySelect.innerHTML = '<option value="">-- Sélectionner une sous-catégorie --</option>';
 
-  if (transactionTypeSelect && targetAccountGroup) {
-    transactionTypeSelect.addEventListener("change", function () {
-      targetAccountGroup.style.display = (this.value === "virement") ? "block" : "none";
+      window.allSubcategories.forEach(subcat => {
+        if (subcat.category_id == selectedCategoryId) {
+          const opt = document.createElement("option");
+          opt.value = subcat.id;
+          opt.textContent = subcat.name;
+          subcategorySelect.appendChild(opt);
+        }
+      });
     });
   }
 });

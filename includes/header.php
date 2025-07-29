@@ -35,9 +35,11 @@
   </head>
 
   <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
       <div class="container-fluid">
-        <a class="navbar-brand" href="/budget/index.php">BudgetApp</a>
+        <a class="navbar-brand" href="/budget/index.php">Budgex</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,8 +57,19 @@
           <span class="navbar-text me-2">Bonjour, <?php echo $user_fullname; ?></span>
           <a href="/budget/logout.php" class="btn btn-outline-light btn-sm">Déconnexion</a>
         </div>
+
+        <?php else: ?>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/budget/login.php">Connexion</a></li>
+            <li class="nav-item"><a class="nav-link" href="/budget/register.php">Inscription</a></li>
+          </ul>
+        </div>
+        
         <?php endif; ?>
       </div>
-    </nav>
+
+    </nav>  
 
     <div class="container mt-4">
