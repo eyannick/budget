@@ -50,9 +50,11 @@
             <li class="nav-item"><a class="nav-link" href="/budget/index.php">Tableau de bord</a></li>
             <li class="nav-item"><a class="nav-link" href="/budget/controllers/add_transaction.php">Ajouter une transaction</a></li>
             <li class="nav-item"><a class="nav-link" href="/budget/controllers/add_account.php">Ajouter un compte</a></li>
+            <li class="nav-item"><a class="nav-link" href="/budget/controllers/list-accounts.php">Liste des comptes</a></li>
             <li class="nav-item"><a class="nav-link" href="/budget/controllers/add_category.php">Ajouter une catégorie</a></li>
             <li class="nav-item"><a class="nav-link" href="/budget/controllers/add_subcategory.php">Ajouter une sous-catégorie</a></li>
             <li class="nav-item"><a class="nav-link" href="/budget/controllers/list_transactions.php">Historique</a></li>
+            <li class="nav-item"><a class="nav-link" href="/budget/controllers/chart-controller.php">Graphique</a></li>
           </ul>
           <span class="navbar-text me-2">Bonjour, <?php echo $user_fullname; ?></span>
           <a href="/budget/logout.php" class="btn btn-outline-light btn-sm">Déconnexion</a>
