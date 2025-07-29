@@ -1,6 +1,6 @@
 <h2 class="mb-4">Ajouter une catégorie ou sous-catégorie</h2>
 
-<?php if ($message): ?>
+<?php if (!empty($message)): ?>
   <div class="alert alert-info"><?php echo htmlspecialchars($message); ?></div>
 <?php endif; ?>
 
