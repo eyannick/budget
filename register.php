@@ -1,18 +1,18 @@
 <?php
-
-  require_once 'includes/db.php';
-
   session_start();
 
   if (isset($_SESSION["user_id"])) {
+
       header("Location: index.php");
       exit;
+      
   }
-  
+
+  require_once 'includes/db.php';
+
   $errors = [];
 
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
       $first_name = trim($_POST["first_name"]);
       $last_name = trim($_POST["last_name"]);
       $email = trim($_POST["email"]);
@@ -53,9 +53,7 @@
 <?php include 'includes/header.php'; ?>
 
   <div class="container mt-5" style="max-width: 500px;">
-
     <h2>Créer un compte</h2>
-
     <?php if ($errors): ?>
       <div class="alert alert-danger">
         <?php foreach ($errors as $error): ?>
@@ -63,37 +61,29 @@
         <?php endforeach; ?>
       </div>
     <?php endif; ?>
-
     <form method="post">
-
       <div class="mb-3">
         <label for="first_name" class="form-label">Prénom</label>
         <input type="text" class="form-control" id="first_name" name="first_name" required>
       </div>
-
       <div class="mb-3">
         <label for="last_name" class="form-label">Nom</label>
         <input type="text" class="form-control" id="last_name" name="last_name" required>
       </div>
-
       <div class="mb-3">
         <label for="email" class="form-label">Adresse e-mail</label>
         <input type="email" class="form-control" id="email" name="email" required>
       </div>
-
       <div class="mb-3">
         <label for="password" class="form-label">Mot de passe</label>
         <input type="password" class="form-control" id="password" name="password" required>
       </div>
-
       <div class="mb-3">
         <label for="confirm_password" class="form-label">Confirmer le mot de passe</label>
         <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
       </div>
       <button type="submit" class="btn btn-primary">S'inscrire</button>
-
     </form>
-
   </div>
 
 <?php include 'includes/footer.php'; ?>

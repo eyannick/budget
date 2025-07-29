@@ -38,21 +38,27 @@ CREATE TABLE IF NOT EXISTS subcategories (
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
 );
 
--- Transactions
 CREATE TABLE IF NOT EXISTS transactions (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     account_id INT NOT NULL,
-    subcategory_id INT NOT NULL,
-    label VARCHAR(255),
-    observation TEXT,
-    type ENUM('revenu', 'dépense') NOT NULL,
+    transaction_type ENUM('revenu', 'dépense', 'virement') NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
     date DATE NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    category_id INT DEFAULT NULL,
+    subcategory_id INT DEFAULT NULL,
+    label VARCHAR(255),
+    observation TEXT,
+    target_account_id INT DEFAULT NULL, -- utilisé uniquement pour les virements
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (account_id) REFERENCES accounts(id),
-    FOREIGN KEY (subcategory_id) REFERENCES subcategories(id)
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    FOREIGN KEY (subcategory_id) REFERENCES subcategories(id),
+    FOREIGN KEY (target_account_id) REFERENCES accounts(id)
 );
+
 
 -- Virements
 CREATE TABLE IF NOT EXISTS transfers (
