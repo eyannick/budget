@@ -43,9 +43,9 @@
                       <?php foreach ($account['transactions'] as $txn): ?>
                         <tr>
                           <td><?= htmlspecialchars($txn['date']) ?></td>
-                          <td><?= htmlspecialchars($txn['category']) ?></td>
-                          <td><?= htmlspecialchars($txn['subcategory']) ?></td>
-                          <td><?= htmlspecialchars($txn['label']) ?></td>
+                          <td><?= htmlspecialchars($txn['category'] ?? '') ?></td>
+                          <td><?= htmlspecialchars($tx['subcategory_label'] ?? '') ?></td>
+                          <td><?= htmlspecialchars($txn['label'] ?? '') ?></td>
                           <td class="<?= $txn['transaction_type'] === 'revenue' ? 'text-success' : 'text-danger' ?>">
                             <?= $txn['transaction_type'] === 'revenue' ? '+' : '-' ?>
                             <?= number_format($txn['amount'], 2, ',', ' ') ?> €
